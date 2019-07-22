@@ -1,0 +1,21 @@
+.prod_update_img{
+	border: #000 solid;
+}
+
+#product .pb-right-column .product-price-group .price {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ff3366;
+}
+
+
+.cat-discount {
+    background: #ff9900;
+    color: #fff;
+    padding: 0 15px;
+    text-align: center;
+    line-height: inherit;
+    margin-right: 0;
+    height: 23px;
+    line-height: 23px;
+}

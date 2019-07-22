@@ -1,0 +1,94 @@
+Anchor tag
+----------
+<?php echo Html::a('Login or Register', ['site/login'], ['class' => '']) ?>
+
+ACVTIVE RECORD
+---------------
+ $s = Office::find()
+->select('skills')
+->where(['id' => $office_id])
+->one(); 
+
+
+DROPDOWN
+--------
+
+<?php
+echo $form->field($model, 'gender')->dropDownList(
+            ['male' => 'Male', 'female' => 'Female'],
+            ['prompt' => 'please choose']
+); ?>
+
+use yii\helpers\ArrayHelper;
+$makeList = ArrayHelper::map(Make::find()->all(), 'id', 'car_make');
+<?= $form->field($model, 'make')->dropdownList($makeList,
+        ['prompt'=>'Choose a make']
+    )->label(false);; 
+?>
+
+
+
+return $this->redirect(['view', 'id' => $model->id]);
+
+
+
+
+
+MIGRATION
+---------
+**Create Table**
+yii migrate/create create_post_table
+
+To create table fields right away, specify them via --fields option.
+yii migrate/create create_post_table --fields="title:string,body:text"
+
+public function up()
+{
+    $this->createTable('post', [
+        'id' => $this->primaryKey(),
+        'title' => $this->string(12)->notNull()->unique(),
+        'body' => $this->text()
+    ]);
+}
+
+**Add Column** 
+yii migrate/create add_position_column_to_post_table --fields="position:integer"
+
+**Drop Column**
+yii migrate/create drop_position_column_from_post_table --fields="position:integer"
+
+
+
+use app\models\ProductsSearch;
+
+
+IMG TAG
+-------
+
+use yii\helpers\Html;
+
+<?= Html::img('@web/nasha/images/icon_1.png', ['alt'=>'icon_1.png']); ?>
+
+
+URL 
+---
+use yii\helpers\Url;
+
+Url::base();         // /myapp
+Url::base(true);     // http(s)://example.com/myapp - depending on current schema
+Url::base('https');  // https://example.com/myapp
+Url::base('http');   // http://example.com/myapp
+Url::base('');       // //example.com/myapp
+
+
+LOGOUT LINK
+-----------
+<?= Html::a('Logout', ['site/logout'], ['data' => ['method' => 'post']]) ?>
+
+
+GET CONTROLLER OR ACTION NAME
+-----------------------------
+<?php echo Yii::$app->controller->id; //current controller id ?>
+
+
+<?php echo Yii::$app->controller->action->id; //current controller action id ?>
